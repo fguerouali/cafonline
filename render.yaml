@@ -1,0 +1,21 @@
+services:
+  - type: worker
+    name: caf-watch
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: WATCH_URL
+        value: https://tickets.cafonline.com/fr
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false     # tu rempliras dans le dashboard
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: CHECK_EVERY_SECONDS
+        value: "180"
+      - key: JITTER_MAX_SECONDS
+        value: "60"
+      - key: PW_NAV_TIMEOUT_MS
+        value: "60000"
+      - key: PW_WAIT_AFTER_LOAD_MS
+        value: "5000"
